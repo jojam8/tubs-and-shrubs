@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "title": "Rhododendrons",
+      "desc": "Including the stunning Nova Zembla variety. Big, beautiful and long-lasting — a classic for any garden. Regularly restocked when available.",
+      "price": "From £10 each"
+    },
+    {
+      "title": "Hydrangeas",
+      "desc": "A garden staple that delivers season after season. We regularly bring down fresh stock — check our Facebook page for current availability.",
+      "price": "From £10 each"
+    },
+    {
+      "title": "Million Bells Trailers",
+      "desc": "Perfect for hanging baskets and containers. Cascading, colourful and incredibly long-flowering. A customer favourite every season.",
+      "price": "Enquire for pricing"
+    },
+    {
+      "title": "French Marigolds",
+      "desc": "Commercial packs of 20 — brilliant value for filling borders and pots with bold, long-lasting colour all summer long.",
+      "price": "£4 per pack of 20"
+    },
+    {
+      "title": "Shrubs & Tubs",
+      "desc": "A constantly rotating range of shrubs, feature plants and potted specimens — ideal for structure, screening or a statement piece in any garden.",
+      "price": "Enquire for pricing"
+    },
+    {
+      "title": "Garden Design",
+      "desc": "Beyond plants, George offers garden design services drawing on years of professional training and hands-on experience across the North East.",
+      "price": "Get in touch to discuss"
+    }
+  ]
+}

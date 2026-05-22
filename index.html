@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tubs & Shrubs — Plants, Tubs & Garden Design · Newcastle</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --forest:      #2C4A2E;
+    --forest-mid:  #3D6640;
+    --forest-light:#527A55;
+    --moss:        #6B8F5E;
+    --sage:        #8FAF82;
+    --sage-light:  #B5CEAD;
+    --cream:       #F4F1E8;
+    --warm-white:  #EDE9DC;
+    --parchment:   #E2DCCF;
+    --sand:        #C8C0AD;
+    --text:        #1A2B1C;
+    --text-mid:    #3D5440;
+    --text-light:  #6B826E;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.3rem 4rem;
+    background: rgba(244,241,232,0.95);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--sand);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 600; color: var(--forest);
+    text-decoration: none; letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--moss); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+  .nav-links a {
+    text-decoration: none; color: var(--text-mid);
+    font-size: 0.78rem; letter-spacing: 0.13em; text-transform: uppercase;
+    font-weight: 400; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--forest); }
+  .nav-cta {
+    background: var(--forest) !important; color: white !important;
+    padding: 0.55rem 1.4rem; border-radius: 30px;
+  }
+  .nav-cta:hover { background: var(--forest-mid) !important; }
+
+  /* ── HERO ── */
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 72px; }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 5rem 4rem 5rem 5rem;
+    background: var(--warm-white); position: relative;
+  }
+  .hero-eyebrow {
+    font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--moss); font-weight: 500; margin-bottom: 1.6rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .hero-eyebrow::before { content: ''; display: block; width: 2rem; height: 1.5px; background: var(--moss); }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 4.5vw, 4.6rem);
+    font-weight: 500; line-height: 1.1; color: var(--text); margin-bottom: 1.6rem;
+  }
+  .hero h1 em { font-style: italic; color: var(--forest-mid); }
+  .hero-desc { color: var(--text-light); line-height: 1.9; font-size: 0.95rem; max-width: 400px; margin-bottom: 2.8rem; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--forest); color: white;
+    padding: 0.9rem 2rem; text-decoration: none;
+    font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+    font-weight: 500; border-radius: 30px;
+    transition: background 0.25s, transform 0.2s;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+  .btn-primary:hover { background: var(--forest-mid); transform: translateY(-1px); }
+  .btn-ghost {
+    background: transparent; color: var(--text);
+    padding: 0.9rem 2rem; text-decoration: none;
+    font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+    font-weight: 500; border: 1.5px solid var(--sand); border-radius: 30px;
+    transition: border-color 0.25s, color 0.25s;
+  }
+  .btn-ghost:hover { border-color: var(--sage); color: var(--forest); }
+  .hero-stats {
+    display: flex; gap: 3rem; margin-top: 3.5rem;
+    padding-top: 2.5rem; border-top: 1px solid var(--sand);
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 500; color: var(--forest); line-height: 1;
+  }
+  .stat-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-top: 0.35rem; }
+
+  .hero-right {
+    display: grid; grid-template-rows: 1fr 1fr; grid-template-columns: 1fr 1fr;
+    gap: 4px; background: var(--parchment);
+  }
+  .hero-photo { overflow: hidden; position: relative; }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+  .hero-photo:hover img { transform: scale(1.04); }
+  .hero-photo.tall { grid-row: 1 / 3; }
+  .hero-badge {
+    position: absolute; bottom: 1.2rem; right: 1.2rem;
+    background: rgba(244,241,232,0.96); backdrop-filter: blur(8px);
+    padding: 1rem 1.3rem; border-radius: 12px; border-left: 3px solid var(--forest);
+  }
+  .badge-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--forest); }
+  .badge-sub { font-size: 0.72rem; color: var(--text-light); margin-top: 0.2rem; }
+
+  /* ── STRIP ── */
+  .strip {
+    background: var(--forest); padding: 1.6rem 5rem;
+    display: flex; align-items: center; justify-content: center; gap: 4rem; flex-wrap: wrap;
+  }
+  .strip-item {
+    display: flex; align-items: center; gap: 0.8rem;
+    color: rgba(255,255,255,0.88); font-size: 0.78rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 400;
+  }
+  .strip-icon { font-size: 1rem; }
+  .strip-div { width: 1px; height: 1.4rem; background: rgba(255,255,255,0.2); }
+
+  /* ── SECTION COMMONS ── */
+  .section-tag {
+    font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--moss); font-weight: 500; margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.7rem;
+  }
+  .section-tag::before { content: ''; display: block; width: 1.5rem; height: 1.5px; background: var(--moss); }
+  .section-h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3vw, 3.2rem); font-weight: 500; line-height: 1.2; margin-bottom: 1.6rem;
+  }
+  .section-h2 em { font-style: italic; color: var(--forest-mid); }
+  .body-p { color: var(--text-light); line-height: 1.9; font-size: 0.93rem; margin-bottom: 1.2rem; }
+
+  /* ── ABOUT ── */
+  .about {
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding: 7rem 5rem; gap: 6rem; align-items: center;
+    background: var(--cream);
+  }
+  .about-mosaic {
+    display: grid; grid-template-columns: 1fr 1fr;
+    grid-template-rows: 260px 200px; gap: 8px;
+  }
+  .mosaic-img { overflow: hidden; border-radius: 6px; }
+  .mosaic-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+  .mosaic-img:hover img { transform: scale(1.05); }
+  .mosaic-img.wide { grid-column: 1 / 3; }
+  .about-features { display: flex; flex-direction: column; gap: 0.9rem; margin: 2rem 0; }
+  .feat-row {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1rem 1.2rem; background: var(--warm-white);
+    border-radius: 8px; border: 1px solid var(--parchment);
+  }
+  .feat-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .feat-title { font-weight: 500; font-size: 0.88rem; margin-bottom: 0.2rem; color: var(--text); }
+  .feat-desc { font-size: 0.8rem; color: var(--text-light); line-height: 1.6; }
+
+  /* ── WHAT'S IN STOCK ── */
+  .stock { background: var(--text); padding: 7rem 5rem; }
+  .stock-header { text-align: center; margin-bottom: 4rem; }
+  .stock-header .section-tag { justify-content: center; color: var(--sage-light); }
+  .stock-header .section-tag::before { background: var(--sage-light); }
+  .stock-header .section-h2 { color: var(--cream); }
+  .stock-header .section-h2 em { color: var(--sage-light); }
+  .stock-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: rgba(255,255,255,0.07); border-radius: 8px; overflow: hidden;
+  }
+  .stock-card {
+    background: rgba(255,255,255,0.03); padding: 2.5rem 2rem;
+    transition: background 0.3s; position: relative; overflow: hidden;
+  }
+  .stock-card:hover { background: rgba(255,255,255,0.07); }
+  .stock-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: var(--moss); transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+  }
+  .stock-card:hover::after { transform: scaleX(1); }
+  .stock-num {
+    font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 400;
+    color: rgba(255,255,255,0.06); line-height: 1; margin-bottom: 1.2rem;
+  }
+  .stock-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--cream); margin-bottom: 0.7rem; }
+  .stock-desc { font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.8; margin-bottom: 1.4rem; }
+  .stock-price { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage-light); font-weight: 500; }
+
+  /* ── GALLERY ── */
+  .gallery { padding: 5rem 5rem; background: var(--parchment); }
+  .gallery-header { text-align: center; margin-bottom: 3rem; }
+  .gallery-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 200px 200px; gap: 8px;
+  }
+  .gal-img { overflow: hidden; border-radius: 6px; }
+  .gal-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+  .gal-img:hover img { transform: scale(1.06); }
+  .gal-img.wide2 { grid-column: span 2; }
+
+  /* ── CONTACT ── */
+  .contact {
+    padding: 7rem 5rem; background: var(--warm-white);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;
+  }
+  .contact-list { display: flex; flex-direction: column; gap: 0.9rem; margin: 2rem 0; }
+  .contact-item {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 1.2rem; background: var(--cream);
+    border: 1px solid var(--parchment); border-radius: 8px;
+    font-size: 0.88rem; color: var(--text-mid);
+  }
+  .c-icon { font-size: 1.1rem; }
+  .c-label { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.2rem; }
+
+  /* ── MAP PLACEHOLDER ── */
+  .map-box {
+    background: var(--parchment); border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--sand); height: 100%; min-height: 360px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1rem; color: var(--text-light); font-size: 0.88rem;
+  }
+  .map-box .map-icon { font-size: 2.5rem; }
+  .map-box strong { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--text); font-weight: 500; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--text); color: rgba(255,255,255,0.55); padding: 4rem 5rem 2.5rem; }
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem;
+    padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 2rem;
+  }
+  .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: white; margin-bottom: 0.8rem; font-weight: 600; }
+  .footer-brand span { color: var(--sage-light); }
+  .footer-desc { font-size: 0.82rem; line-height: 1.8; max-width: 270px; }
+  .f-col-title { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.35); font-weight: 500; margin-bottom: 1.2rem; }
+  .f-links { display: flex; flex-direction: column; gap: 0.65rem; }
+  .f-links a { text-decoration: none; color: rgba(255,255,255,0.5); font-size: 0.83rem; transition: color 0.2s; }
+  .f-links a:hover { color: var(--sage-light); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.74rem; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * { animation: fadeUp 0.65s ease both; }
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.4s; }
+  .hero-left > *:nth-child(5) { animation-delay: 0.5s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 3rem 1.5rem; }
+    .hero-right { height: 280px; }
+    .strip { padding: 1.4rem 1.5rem; gap: 1.4rem; }
+    .about, .contact { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 3rem; }
+    .about-mosaic { height: 280px; grid-template-rows: 140px 130px; }
+    .stock { padding: 4rem 1.5rem; }
+    .stock-grid { grid-template-columns: 1fr; }
+    .gallery { padding: 3rem 1.5rem; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 160px); }
+    .gallery-grid .gal-img.wide2 { grid-column: span 1; }
+    footer { padding: 3rem 1.5rem 2rem; }
+    .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Tubs <span>& Shrubs</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#stock">What's In</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Grower & Garden Designer · Newcastle</div>
+    <h1>Beautiful Plants, <em>Expertly Grown</em> & Ready for Your Garden</h1>
+    <p class="hero-desc" id="tagline">Tubs & Shrubs has an enviable reputation for the range and quality of plants we supply. Experienced grower and garden designer, trained at Houghall Horticultural College.</p>
+    <div class="hero-btns">
+      <a href="tel:07802232622" class="btn-primary">📞 Call George</a>
+      <a href="#stock" class="btn-ghost">What's In Stock</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">🌿</div>
+        <div class="stat-label">Expert Grower</div>
+      </div>
+      <div>
+        <div class="stat-num">1.8K</div>
+        <div class="stat-label">Happy Followers</div>
+      </div>
+      <div>
+        <div class="stat-num">£10</div>
+        <div class="stat-label">Plants From</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo tall">
+      <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=700&q=80" alt="Garden plants" />
+    </div>
+    <div class="hero-photo" style="position:relative;">
+      <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=500&q=80" alt="Shrubs and flowers" />
+      <div class="hero-badge">
+        <div class="badge-title">Houghall Trained</div>
+        <div class="badge-sub">Professional Horticulturalist</div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?w=500&q=80" alt="Colourful flowers" />
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-item"><span class="strip-icon">🌱</span> Houghall Horticultural College Trained</div>
+  <div class="strip-div"></div>
+  <div class="strip-item"><span class="strip-icon">📍</span> Newcastle · Sunderland · South Shields</div>
+  <div class="strip-div"></div>
+  <div class="strip-item"><span class="strip-icon">🌸</span> Seasonal Stock Updated Regularly</div>
+  <div class="strip-div"></div>
+  <div class="strip-item"><span class="strip-icon">💚</span> Grower & Designer</div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-mosaic">
+    <div class="mosaic-img wide">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80" alt="Garden centre plants" />
+    </div>
+    <div class="mosaic-img">
+      <img src="https://images.unsplash.com/photo-1444392061186-9fc38f16d4e4?w=500&q=80" alt="Potted plants" />
+    </div>
+    <div class="mosaic-img">
+      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=500&q=80" alt="Shrubs" />
+    </div>
+  </div>
+  <div>
+    <div class="section-tag">About Us</div>
+    <h2 class="section-h2">A Plant Business Built on <em>Passion & Expertise</em></h2>
+    <p class="body-p" id="about-1">Tubs & Shrubs has built an enviable reputation across the North East for the range and quality of plants we supply. George is an experienced grower and garden designer, having trained at Houghall Horticultural College.</p>
+    <p class="body-p" id="about-2">From million bells trailers and French marigolds to Rhododendrons and Hydrangeas — we bring exceptional plants directly to you at prices that make your garden dreams achievable.</p>
+    <div class="about-features">
+      <div class="feat-row">
+        <span class="feat-icon">🎓</span>
+        <div>
+          <div class="feat-title">Professionally Trained</div>
+          <div class="feat-desc">Trained at Houghall Horticultural College — you're buying from a genuine expert, not just a reseller</div>
+        </div>
+      </div>
+      <div class="feat-row">
+        <span class="feat-icon">📦</span>
+        <div>
+          <div class="feat-title">Stock Updated Constantly</div>
+          <div class="feat-desc">New plants arrive regularly — follow us on Facebook for the latest arrivals and availability</div>
+        </div>
+      </div>
+      <div class="feat-row">
+        <span class="feat-icon">📍</span>
+        <div>
+          <div class="feat-title">Serving the North East</div>
+          <div class="feat-desc">Based in Newcastle, serving Newcastle, South Shields, East Boldon, Hebburn and Sunderland</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STOCK -->
+<section class="stock" id="stock">
+  <div class="stock-header">
+    <div class="section-tag">What We Grow</div>
+    <h2 class="section-h2">Plants We <em>Specialise In</em></h2>
+  </div>
+  <div class="stock-grid" id="stock-grid">
+    <div class="stock-card">
+      <div class="stock-num">01</div>
+      <div class="stock-title">Rhododendrons</div>
+      <div class="stock-desc">Including the stunning Nova Zembla variety. Big, beautiful and long-lasting — a classic for any garden. Regularly restocked when available.</div>
+      <div class="stock-price">From £10 each</div>
+    </div>
+    <div class="stock-card">
+      <div class="stock-num">02</div>
+      <div class="stock-title">Hydrangeas</div>
+      <div class="stock-desc">A garden staple that delivers season after season. We regularly bring down fresh stock — check our Facebook page for current availability.</div>
+      <div class="stock-price">From £10 each</div>
+    </div>
+    <div class="stock-card">
+      <div class="stock-num">03</div>
+      <div class="stock-title">Million Bells Trailers</div>
+      <div class="stock-desc">Perfect for hanging baskets and containers. Cascading, colourful and incredibly long-flowering. A customer favourite every season.</div>
+      <div class="stock-price">Enquire for pricing</div>
+    </div>
+    <div class="stock-card">
+      <div class="stock-num">04</div>
+      <div class="stock-title">French Marigolds</div>
+      <div class="stock-desc">Commercial packs of 20 — brilliant value for filling borders and pots with bold, long-lasting colour all summer long.</div>
+      <div class="stock-price">£4 per pack of 20</div>
+    </div>
+    <div class="stock-card">
+      <div class="stock-num">05</div>
+      <div class="stock-title">Shrubs & Tubs</div>
+      <div class="stock-desc">A constantly rotating range of shrubs, feature plants and potted specimens — ideal for structure, screening or a statement piece in any garden.</div>
+      <div class="stock-price">Enquire for pricing</div>
+    </div>
+    <div class="stock-card">
+      <div class="stock-num">06</div>
+      <div class="stock-title">Garden Design</div>
+      <div class="stock-desc">Beyond plants, George offers garden design services drawing on years of professional training and hands-on experience across the North East.</div>
+      <div class="stock-price">Get in touch to discuss</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="gallery-header">
+    <div class="section-tag" style="justify-content:center;">Fresh Stock</div>
+    <h2 class="section-h2" style="text-align:center;">Straight from the <em>Nursery</em></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gal-img wide2">
+      <img src="https://images.unsplash.com/photo-1468327768560-75b778cbb551?w=800&q=80" alt="Flower garden" />
+    </div>
+    <div class="gal-img">
+      <img src="https://images.unsplash.com/photo-1490750967868-88df5691cc0e?w=400&q=80" alt="Pink flowers" />
+    </div>
+    <div class="gal-img">
+      <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=400&q=80" alt="Garden plants" />
+    </div>
+    <div class="gal-img">
+      <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=400&q=80" alt="Shrubs" />
+    </div>
+    <div class="gal-img wide2">
+      <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80" alt="Garden in bloom" />
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div>
+    <div class="section-tag">Get in Touch</div>
+    <h2 class="section-h2">Come and See <em>What's In</em></h2>
+    <p class="body-p" id="contact-intro">Stock changes fast — the best way to know what's available is to follow us on Facebook or give George a call. We're out early most mornings topping the shelves up.</p>
+    <div class="contact-list">
+      <div class="contact-item">
+        <span class="c-icon">📱</span>
+        <div>
+          <div class="c-label">Phone / Text</div>
+          <a id="phone-link" href="tel:07802232622" style="color:inherit;text-decoration:none;">07802 232622</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="c-icon">✉️</span>
+        <div>
+          <div class="c-label">Email</div>
+          <a id="email-link" href="mailto:gdub@hotmail.co.uk" style="color:inherit;text-decoration:none;">gdub@hotmail.co.uk</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="c-icon">📍</span>
+        <div>
+          <div class="c-label">Areas Covered</div>
+          Newcastle · South Shields · East Boldon · Hebburn · Sunderland
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="c-icon">📘</span>
+        <div>
+          <div class="c-label">Facebook</div>
+          Tubs and Shrubs — follow for latest stock updates
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="map-box">
+    <div class="map-icon">🗺️</div>
+    <strong>Newcastle upon Tyne</strong>
+    <span>Serving the wider North East</span>
+    <span style="font-size:0.78rem;margin-top:0.5rem;text-align:center;padding:0 2rem;">Newcastle · South Shields · East Boldon · Hebburn · Sunderland</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">Tubs <span>& Shrubs</span></div>
+      <p class="footer-desc">Experienced grower and garden designer serving Newcastle and the North East. Quality plants at honest prices, straight from the nursery.</p>
+    </div>
+    <div>
+      <div class="f-col-title">Quick Links</div>
+      <div class="f-links">
+        <a href="#about">About</a>
+        <a href="#stock">What's In Stock</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Get in Touch</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-col-title">Contact</div>
+      <div class="f-links">
+        <a href="tel:07802232622">07802 232622</a>
+        <a href="mailto:gdub@hotmail.co.uk">gdub@hotmail.co.uk</a>
+        <a href="#">Facebook Page</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Tubs & Shrubs. All rights reserved.</span>
+    <span>📍 Newcastle upon Tyne & surrounding areas</span>
+  </div>
+</footer>
+
+<script>
+  // Load site.json and update editable fields
+  fetch('/content/site.json')
+    .then(r => r.json())
+    .then(d => {
+      if (d.tagline) document.getElementById('tagline').textContent = d.tagline;
+      if (d.about_1) document.getElementById('about-1').textContent = d.about_1;
+      if (d.about_2) document.getElementById('about-2').textContent = d.about_2;
+      if (d.contact_intro) document.getElementById('contact-intro').textContent = d.contact_intro;
+      if (d.phone) {
+        const ph = document.getElementById('phone-link');
+        ph.textContent = d.phone;
+        ph.href = 'tel:' + d.phone.replace(/\s/g, '');
+      }
+      if (d.email) {
+        const em = document.getElementById('email-link');
+        em.textContent = d.email;
+        em.href = 'mailto:' + d.email;
+      }
+    })
+    .catch(() => {}); // silently fail — static content still shows
+
+  // Load stock.json and render stock cards
+  fetch('/content/stock.json')
+    .then(r => r.json())
+    .then(d => {
+      const grid = document.getElementById('stock-grid');
+      if (!grid || !d.items) return;
+      grid.innerHTML = d.items.map((item, i) => `
+        <div class="stock-card">
+          <div class="stock-num">0${i + 1}</div>
+          <div class="stock-title">${item.title}</div>
+          <div class="stock-desc">${item.desc}</div>
+          <div class="stock-price">${item.price}</div>
+        </div>
+      `).join('');
+    })
+    .catch(() => {});
+</script>
+
+<!-- Netlify Identity redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+</body>
+</html>
